@@ -1,0 +1,164 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage[table,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, shadows}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+
+% --- Custom Colors ---
+\definecolor{pyblue}{HTML}{1E40AF}      % Deep Python Blue
+\definecolor{pyyellow}{HTML}{D97706}    % Warm Python Amber
+\definecolor{pygreen}{HTML}{059669}     % Energetic Green
+\definecolor{pypurple}{HTML}{7C3AED}    % Wizard Purple
+\definecolor{codegray}{HTML}{4B5563}    % Code comment gray
+\definecolor{codebg}{HTML}{F8FAFC}      % Code background light gray
+\definecolor{codeframe}{HTML}{CBD5E1}   % Code box border
+\definecolor{snackbg}{HTML}{EFF6FF}     % Pro tip background
+\definecolor{snackborder}{HTML}{3B82F6} % Pro tip border
+\definecolor{pitfallbg}{HTML}{FEF2F2}   % Alert background
+\definecolor{pitfallborder}{HTML}{EF4444}% Alert border
+\definecolor{chucklebg}{HTML}{FFFBEB}   % Funny break background
+\definecolor{chuckleborder}{HTML}{F59E0B}% Funny break border
+\definecolor{labbg}{HTML}{ECFDF5}       % Lab challenge background
+\definecolor{labborder}{HTML}{10B981}   % Lab challenge border
+
+% --- Hyperref Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=pypurple,
+    citecolor=pygreen,
+    urlcolor=pyblue,
+    pdftitle={Snake Bytes: Python Programming Fundamentals},
+    pdfauthor={The Antigravity Python Wizard}
+}
+
+% --- Page Style & Headers ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{codegray}\leftmark}
+\fancyhead[R]{\small\color{pypurple}\bfseries Snake Bytes: Python Fundamentals}
+\fancyfoot[C]{\small\color{codegray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Section & Chapter Heading Formatting ---
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{pypurple}}
+  {\Large\color{pyyellow}\chaptertitlename\ \thechapter}
+  {10pt}
+  {\Huge}
+
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{pyblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{pygreen}}
+  {\thesubsection}{1em}{}
+
+% --- Listings (Code Syntax Highlighting) Setup ---
+\lstset{
+    language=Python,
+    backgroundcolor=\color{codebg},
+    basicstyle=\ttfamily\small\color{black},
+    keywordstyle=\bfseries\color{pypurple},
+    stringstyle=\color{pygreen},
+    commentstyle=\itshape\color{codegray},
+    numberstyle=\tiny\color{codegray},
+    numbers=left,
+    numbersep=10pt,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=none,
+    captionpos=b,
+    keepspaces=true
+}
+
+% Styled Code Box Container
+\newtcblisting{pycode}[2][]{
+    toptitle=2mm,
+    bottomtitle=2mm,
+    colback=codebg,
+    colframe=codeframe,
+    coltitle=black,
+    fonttitle=\bfseries\ttfamily\small,
+    title={\small\hspace{1mm} Python Listing: #2},
+    enhanced,
+    attach boxed title to top left={yshift=-2mm,xshift=3mm},
+    boxed title style={colback=codeframe!30!white,colframe=codeframe,arc=2mm},
+    arc=3mm,
+    drop shadow=black!10!white,
+    listing only,
+    listing options={
+        language=Python,
+        basicstyle=\ttfamily\small,
+        keywordstyle=\bfseries\color{pypurple},
+        stringstyle=\color{pygreen},
+        commentstyle=\itshape\color{codegray},
+        numberstyle=\tiny\color{codegray},
+        numbers=left,
+        numbersep=8pt,
+        breaklines=true,
+        showstringspaces=false
+    },
+    #1
+}
+
+% --- Custom Callout Boxes ---
+% 1. Snake Snack (Pro Tip)
+\newtcolorbox{snakesnack}[1]{
+    enhanced,
+    colback=snackbg,
+    colframe=snackborder,
+    arc=3mm,
+    fonttitle=\bfseries\color{snackborder},
+    title={ Snake Snack (Pro Tip): #1},
+    drop shadow=snackborder!20!white
+}
+
+% 2. Viper Pitfall (Common Error)
+\newtcolorbox{viperpitfall}[1]{
+    enhanced,
+    colback=pitfallbg,
+    colframe=pitfallborder,
+    arc=3mm,
+    fonttitle=\bfseries\color{pitfallborder},
+    title={ Viper Pitfall (Watch Out!): #1},
+    drop shadow=pitfallborder!20!white
+}
+
+% 3. Chuckle Break (Humor & Analogy)
+\newtcolorbox{chucklebreak}[1]{
+    enhanced,
+    colback=chucklebg,
+    colframe=chuckleborder,
+    arc=3mm,
+    fonttitle=\bfseries\color{chuckleborder},
+    title={ Chuckle Break: #1},
+    drop shadow=chuckleborder!20!white
+}
+
+% 4. Snake Lab (Interactive Exercise)
+\newtcolorbox{snakelab}[1]{
+    enhanced,
+    colback=labbg,
+    colframe=labborder,
+    arc=3mm,
+    fonttitle=\bfseries\color{labborder},
+    title={ Snake Lab Challenge: #1},
+    drop shadow=labborder!20!white
+}

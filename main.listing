@@ -1,0 +1,47 @@
+# 1. Variables & Types
+age = 20                 # int
+pi = 3.14159             # float
+name = "Snake"           # str
+is_wizard = True         # bool
+
+# 2. String Formatting
+greeting = f"Hello {name}, you are level {age}!"
+
+# 3. Control Flow
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teen")
+else:
+    print("Child")
+
+# 4. Loops
+for i in range(3):        # 0, 1, 2
+    print(i)
+
+while is_wizard:
+    print("Casting spells!")
+    break                 # Exit loop
+
+# 5. Functions
+def add(a, b=5):
+    return a + b
+
+# 6. Data Structures
+my_list = [1, 2, 3]       # Ordered, mutable
+my_tuple = (10, 20)       # Immutable
+my_dict = {"a": 1, "b": 2}# Key-Value map
+my_set = {1, 2, 3}        # Unique elements
+
+# 7. Error Handling
+try:
+    val = 10 / 0
+except ZeroDivisionError:
+    print("Caught division by zero!")
+
+# 8. OOP Class
+class Snake:
+    def __init__(self, name):
+        self.name = name
+    def hiss(self):
+        print(f"{self.name} says HISS!")

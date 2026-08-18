@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+% Load custom Preamble (Packages, Styles, Colors, Listings, Callouts)
+\input{preamble.tex}
+
+\begin{document}
+
+% --- Front Matter ---
+\frontmatter
+\input{cover.tex}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+% --- Main Matter ---
+\mainmatter
+
+\input{chapters/ch01_introduction.tex}
+\input{chapters/ch02_control_flow.tex}
+\input{chapters/ch03_loops.tex}
+\input{chapters/ch04_functions.tex}
+\input{chapters/ch05_data_structures.tex}
+\input{chapters/ch06_exceptions.tex}
+\input{chapters/ch07_oop_basics.tex}
+
+% --- Back Matter: Cheat Sheet & Conclusion ---
+\backmatter
+\chapter{The Ultimate Python Cheat Sheet}
+
+\begin{snakesnack}{Quick Reference Guide}
+Here is your emergency rescue pocket guide to Python syntax!
+\end{snakesnack}
+
+\begin{pycode}{Python Syntax Cheat Sheet}
+# 1. Variables & Types
+age = 20                 # int
+pi = 3.14159             # float
+name = "Snake"           # str
+is_wizard = True         # bool
+
+# 2. String Formatting
+greeting = f"Hello {name}, you are level {age}!"
+
+# 3. Control Flow
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teen")
+else:
+    print("Child")
+
+# 4. Loops
+for i in range(3):        # 0, 1, 2
+    print(i)
+
+while is_wizard:
+    print("Casting spells!")
+    break                 # Exit loop
+
+# 5. Functions
+def add(a, b=5):
+    return a + b
+
+# 6. Data Structures
+my_list = [1, 2, 3]       # Ordered, mutable
+my_tuple = (10, 20)       # Immutable
+my_dict = {"a": 1, "b": 2}# Key-Value map
+my_set = {1, 2, 3}        # Unique elements
+
+# 7. Error Handling
+try:
+    val = 10 / 0
+except ZeroDivisionError:
+    print("Caught division by zero!")
+
+# 8. OOP Class
+class Snake:
+    def __init__(self, name):
+        self.name = name
+    def hiss(self):
+        print(f"{self.name} says HISS!")
+\end{pycode}
+
+\vspace{1cm}
+\begin{center}
+{\Large \bfseries \color{pypurple} Congratulations! You are now a Certified Python Wizard!} \\
+\vspace{0.3cm}
+{\color{codegray} Keep experimenting, build fun projects, and never fear a traceback!}
+\end{center}
+
+\end{document}
